@@ -1,11 +1,11 @@
 package banque;
 
-class CompteEpargne extends Compte {
-    private double tauxInteret =0.03;
+public class CompteEpargne extends Compte {
+    private double tauxInteret ;
 
-    CompteEpargne(String code, double solde, double tauxInteret) {
+    public CompteEpargne(String code, double solde) {
         super (code, solde);
-        this.tauxInteret = tauxInteret ;
+        this.tauxInteret = 0.03;
     }
 
     @Override

@@ -4,7 +4,7 @@ public class CompteCourant extends Compte {
 
     private double decouvert = 5000.0;
 
-    CompteCourant(String code, double solde) {
+    public CompteCourant(String code, double solde) {
         super(code, solde);
     }
 
