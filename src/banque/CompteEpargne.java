@@ -1,0 +1,4 @@
+package banque;
+
+class CompteEpargne {
+}
