@@ -27,6 +27,16 @@ public abstract class Compte {
 
     public abstract void afficherDetails();
 
+    public void verser(double montant, String source) {
+        if (montant <= 0) {
+            throw new IllegalArgumentException("Montant invalide : doit être positif.");
+        }
+        solde += montant;
+        Versement v = new Versement(java.time.LocalDate.now().toString(), montant, source);
+        listeOperations.add(v);
+
+    }
+
 
 
     public String getCode() {
