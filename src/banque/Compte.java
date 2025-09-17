@@ -37,7 +37,19 @@ public abstract class Compte {
 
     }
 
+    public void retirer(double montant, String destination) {
+        if (montant <= 0) {
+            throw new IllegalArgumentException("Montant invalide : doit être positif.");
+        }
+        if (peutRetirer(montant)) {
+            solde -= montant;
+            Retrait r = new Retrait(java.time.LocalDate.now().toString(), montant, destination);
+            listeOperations.add(r);
+        } else {
+            throw new IllegalArgumentException("Retrait refusé : fonds insuffisants.");
+        }
 
+    }
 
     public String getCode() {
         return code;
