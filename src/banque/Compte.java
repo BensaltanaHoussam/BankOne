@@ -1,11 +1,13 @@
 package banque;
 
-import com.sun.corba.se.spi.orb.Operation;
+import operations.Operation;
+import operations.Retrait;
+import operations.Versement;
 
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Compte {
+public abstract class Compte {
     protected String code;
     protected double solde;
     protected ArrayList<Operation> listeOperations;
@@ -19,9 +21,13 @@ abstract class Compte {
         this.listeOperations = new ArrayList<>();
     }
 
-    public abstract void retirer(double montant);
+    public abstract boolean peutRetirer(double montant);
+
     public abstract double calculerInteret();
+
     public abstract void afficherDetails();
+
+
 
     public String getCode() {
         return code;

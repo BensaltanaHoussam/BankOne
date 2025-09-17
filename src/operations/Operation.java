@@ -8,7 +8,7 @@ public abstract class Operation {
     protected String date;
     protected double montant;
 
-    Operation(String date, double montant) {
+    public Operation(String date, double montant) {
         this.num = UUID.randomUUID();
         this.date = date;
         this.montant = montant;

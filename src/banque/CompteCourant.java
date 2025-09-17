@@ -9,17 +9,11 @@ public class CompteCourant extends Compte {
     }
 
     @Override
-    public void retirer(double montant) {
+    public boolean peutRetirer(double montant) {
         if (montant <= 0) {
             throw new IllegalArgumentException("Montant invalide : doit être positif.");
         }
-        if (solde - montant >= -decouvert) {
-            solde -= montant;
-        } else {
-            throw new IllegalArgumentException("Retrait refusé : dépassement du découvert autorisé.");
-        }
-
-
+        return solde - montant >= -decouvert;
     }
 
     @Override
