@@ -3,8 +3,8 @@ package banque;
 public class CompteEpargne extends Compte {
     private double tauxInteret;
 
-    public CompteEpargne(String code, double solde) {
-        super(code, solde);
+    public CompteEpargne(double solde) {
+        super(solde);
         this.tauxInteret = 0.03;
     }
 

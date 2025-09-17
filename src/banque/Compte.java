@@ -6,20 +6,22 @@ import operations.Versement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class Compte {
     protected String code;
     protected double solde;
     protected ArrayList<Operation> listeOperations;
+    private static final AtomicInteger compteur = new AtomicInteger(10000);
 
-    public Compte(String code, double solde) {
-        if (!code.matches("CPT-\\d{5}")) {
-            throw new IllegalArgumentException("Code invalide : format CPT-XXXXX requis.");
-        }
-        this.code = code;
+
+    public Compte (double solde) {
+        this.code = "CPT-" + compteur.getAndIncrement();
         this.solde = solde;
         this.listeOperations = new ArrayList<>();
     }
+
+
 
     public abstract boolean peutRetirer(double montant);
 
