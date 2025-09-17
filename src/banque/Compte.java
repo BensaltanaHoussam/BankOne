@@ -6,17 +6,17 @@ import operations.Versement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Random;
 
 public abstract class Compte {
     protected String code;
     protected double solde;
     protected ArrayList<Operation> listeOperations;
-    private static final AtomicInteger compteur = new AtomicInteger(10000);
+    private static final Random random = new Random();
 
 
     public Compte (double solde) {
-        this.code = "CPT-" + compteur.getAndIncrement();
+        this.code = "CPT-" + random.nextInt(90000);
         this.solde = solde;
         this.listeOperations = new ArrayList<>();
     }
